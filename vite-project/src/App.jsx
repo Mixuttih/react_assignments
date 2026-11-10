@@ -1,5 +1,6 @@
 import './App.css';
 import Greeting from './components/Greeting.jsx';
+import Home from './components/Home';
 const App = () => {
 
   const siteName = "Super Site"
@@ -11,6 +12,7 @@ const App = () => {
       <Greeting name="big boi" age={30} isTeacher={true} />
       <Greeting name="small boi" age={25} isTeacher={false} />
       <Greeting name="medium boi" age={35} isTeacher={true} />
+      <Home />
     </>
   );
 };
