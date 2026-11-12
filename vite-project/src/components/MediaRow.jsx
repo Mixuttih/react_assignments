@@ -1,7 +1,14 @@
+import {useNavigate} from 'react-router';
+
  const MediaRow = (props) => {
-   const {item, setSelectedItem} = props;
+   const {item} = props;
+   const navigate = useNavigate();
+
    return (
-      <tr key={item.media_id} onClick={() => setSelectedItem(item)}>
+      <tr
+        key={item.media_id}
+        onClick={() => navigate('/single', {state: {item}})}
+      >
         <td>
           <img src={item.thumbnail} alt={item.title} />
         </td>

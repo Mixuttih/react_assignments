@@ -1,7 +1,5 @@
-import {useState} from 'react';
-import MediaRow from './MediaRow.jsx';
-import TempCounter from './TempCounter.jsx';
-import SingleView from './SingleView';
+import MediaRow from '../components/MediaRow.jsx';
+import TempCounter from '../components/TempCounter.jsx';
 
 const mediaArray = [
   {
@@ -41,8 +39,6 @@ const mediaArray = [
 ];
 
 const Home = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
-
   return (
     <>
     <TempCounter />
@@ -61,11 +57,10 @@ const Home = () => {
          </thead>
          <tbody>
            {mediaArray.map((item) => (
-             <MediaRow key={item.media_id} item={item} setSelectedItem={setSelectedItem} />
+             <MediaRow key={item.media_id} item={item} />
            ))}
          </tbody>
        </table>
-       <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
     </>
   );
 };

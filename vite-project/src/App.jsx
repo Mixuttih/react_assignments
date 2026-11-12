@@ -1,19 +1,24 @@
 import './App.css';
-import Greeting from './components/Greeting.jsx';
-import Home from './components/Home';
+import {Route, BrowserRouter, Routes} from 'react-router';
+import Layout from './components/Layout.jsx';
+import Profile from './views/Profile.jsx';
+import Upload from './views/Upload.jsx';
+import Single from './views/Single.jsx';
+import Home from './views/Home.jsx';
+
 const App = () => {
-
-  const siteName = "Super Site"
-
   return (
-    <>
-      <h1>My App asdasd {siteName}</h1>
-      <p>ugugh {35-1}</p>
-      <Greeting name="big boi" age={30} isTeacher={true} />
-      {/* <Greeting name="small boi" age={25} isTeacher={false} /> */}
-      {/* <Greeting name="medium boi" age={35} isTeacher={true} /> */}
-      <Home />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/single" element={<Single />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
+
 export default App;
