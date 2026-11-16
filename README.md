@@ -1,3 +1,3 @@
 <p>React Assignments</p>
 
-[Open to view it in the browser.](https://users.metropolia.fi/~mikahiel/react_assignments/)
+[Open to view it in the browser.](https://users.metropolia.fi/~mikahiel/hooks/)
