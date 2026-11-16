@@ -4,6 +4,7 @@ import Layout from './components/Layout.jsx';
 import Profile from './views/Profile.jsx';
 import Upload from './views/Upload.jsx';
 import Single from './views/Single.jsx';
+import Demo from './views/Demo.jsx';
 import Home from './views/Home.jsx';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/single" element={<Single />} />
+          <Route path="/demo" element={<Demo />} />
         </Route>
       </Routes>
     </BrowserRouter>

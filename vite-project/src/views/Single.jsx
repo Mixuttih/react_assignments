@@ -24,6 +24,7 @@ const Single = () => {
       {isImage && <img src={item.filename} alt={item.title} />}
       {isVideo && <video src={item.filename} controls />}
       <p>{item.description}</p>
+      <p>Owner: {item.username}</p>
       <p>Created: {new Date(item.created_at).toLocaleString('fi-FI')}</p>
       <p>Type: {item.media_type}</p>
     </div>
