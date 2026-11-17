@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {fetchData} from '../utils/fetchData.js';
 
 const useMedia = () => {
@@ -24,4 +24,45 @@ const useMedia = () => {
   return mediaArray;
 };
 
-export {useMedia};
+const useAuthentication = () => {
+  const postLogin = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    const loginResult = await fetchData(import.meta.env.VITE_AUTH_API + '/auth/login', fetchOptions);
+    console.log(loginResult);
+    return loginResult;
+  };
+  return {postLogin};
+}
+
+const useUser = () => {
+  const postUser = useCallback(async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    return fetchData(`${import.meta.env.VITE_AUTH_API}/users`, fetchOptions);
+  }, []);
+
+  const getUserByToken = useCallback(async (token) => {
+    const fetchOptions = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return fetchData(`${import.meta.env.VITE_AUTH_API}/users/token`, fetchOptions);
+  }, []);
+
+  return {getUserByToken, postUser};
+};
+
+export {useMedia, useAuthentication, useUser};
