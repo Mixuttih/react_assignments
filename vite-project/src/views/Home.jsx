@@ -3,7 +3,7 @@ import TempCounter from '../components/TempCounter.jsx';
 import {useMedia} from '../hooks/apiHooks.js';
 
 const Home = () => {
-  const mediaArray = useMedia();
+  const {mediaArray} = useMedia();
 
   return (
     <>
